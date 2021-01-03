@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>001 Fundamentals of C and .NET</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 3, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 677710, "assessment_type": "multiple-choice", "created": "2015-09-25T07:45:43Z", "prompt": {"feedbacks": ["This is the definition of a class.", "", "This is the definition of an assembly."], "relatedLectureIds": ["2169096"], "answers": ["A type that contains code for the program.", "A container for classes.", "A deployable unit of an application."], "question": "<p>What is a namespace?</p>"}, "correct_response": ["b"], "updated": "2015-09-25T07:45:43Z", "section": "", "question_plain": "What is a namespace?", "related_lectures": [{"_class": "lecture", "id": 2169096, "title": "Architecture of .NET Applications", "created": "2015-01-03T05:17:31Z", "asset": {"_class": "asset", "id": 4230884, "asset_type": "Video", "title": "Architecture.mp4", "created": "2015-09-27T02:36:31Z"}, "object_index": 8, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169096"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 677712, "assessment_type": "multiple-choice", "created": "2015-09-25T07:47:50Z", "prompt": {"feedbacks": ["", "C# code does not get directly compiled to native code. It gets compiled to IL code first.", "This is just normal compilation and is different from JIT (Just-in-time) Compilation, which happens at runtime. "], "relatedLectureIds": ["2873480"], "answers": ["The compilation of IL code to native machine code at runtime.", "The compilation of C# code to native code.", "The compilation of C# code to IL code."], "question": "<p>What is JIT Compilation?</p>"}, "correct_response": ["a"], "updated": "2015-09-25T07:47:50Z", "section": "", "question_plain": "What is JIT Compilation?", "related_lectures": [{"_class": "lecture", "id": 2873480, "title": "What is CLR?", "created": "2015-05-04T04:08:26Z", "asset": {"_class": "asset", "id": 4231760, "asset_type": "Video", "title": "WhatisCLR.mp4", "created": "2015-09-27T09:42:43Z"}, "object_index": 7, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2873480"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 679772, "assessment_type": "multiple-choice", "created": "2015-09-27T09:41:46Z", "prompt": {"feedbacks": ["", "This is true, but not the best definition.", "This is a more accurate description of an assembly. It's a file, in the form of a executable or a DLL, that contains one ore more namespaces and classes."], "relatedLectureIds": ["2169096"], "answers": ["A piece of code that is executed by CLR", "Container of one or more classes", "A single unit of deployment of .NET applications"], "question": "<p>What is an assembly?</p>"}, "correct_response": ["c"], "updated": "2015-09-27T09:41:46Z", "section": "", "question_plain": "What is an assembly?", "related_lectures": [{"_class": "lecture", "id": 2169096, "title": "Architecture of .NET Applications", "created": "2015-01-03T05:17:31Z", "asset": {"_class": "asset", "id": 4230884, "asset_type": "Video", "title": "Architecture.mp4", "created": "2015-09-27T02:36:31Z"}, "object_index": 8, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169096"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
