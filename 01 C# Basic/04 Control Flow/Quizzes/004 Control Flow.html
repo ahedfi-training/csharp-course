@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>004 Control Flow</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 789704, "assessment_type": "multiple-choice", "created": "2015-12-31T01:26:56Z", "prompt": {"relatedLectureIds": ["2169334"], "answers": ["if number != 0", "if number <> 0", "if (number <> 0)", "if (number != 0)"], "question": "<p>What is the correct syntax to check if <strong>number </strong>is not 0? </p>", "feedbacks": ["", "", "We don't have <> operator in C#. ", "Condition should be enclosed with parentheses. "]}, "correct_response": ["d"], "updated": "2015-12-31T01:30:50Z", "section": "", "question_plain": "What is the correct syntax to check if number is not 0?", "related_lectures": [{"_class": "lecture", "id": 2169334, "title": "Conditional Statements", "created": "2015-01-03T06:32:38Z", "asset": {"_class": "asset", "id": 4226166, "asset_type": "Video", "title": "ConditionalStatements.mp4", "created": "2015-09-26T01:31:19Z"}, "object_index": 40, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169334"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789716, "assessment_type": "multiple-choice", "created": "2015-12-31T01:30:26Z", "prompt": {"relatedLectureIds": ["2169338"], "answers": ["for (var number = 1; number < 10; number++)", "for (var number = 1, number <= 10, number++)", "for (var number = 1; number <= 10; number++)"], "question": "<p> Which answer correctly demonstrates the use of <strong>for </strong>loop to get the numbers <strong>1</strong><span> to <strong>10</strong>?</span></p>", "feedbacks": ["This syntax is correct but 10 is not included. With this loop, we'll only get numbers 1 to 9. ", "Incorrect syntax. We should use semicolon to separate parts of the if clause. ", ""]}, "correct_response": ["c"], "updated": "2015-12-31T01:30:26Z", "section": "", "question_plain": "Which answer correctly demonstrates the use of for loop to get the numbers 1 to 10?", "related_lectures": [{"_class": "lecture", "id": 2169338, "title": "Iteration Statements", "created": "2015-01-03T06:33:23Z", "asset": {"_class": "asset", "id": 4227048, "asset_type": "Video", "title": "IterationStatements.mp4", "created": "2015-09-26T07:04:08Z"}, "object_index": 43, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169338"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789722, "assessment_type": "multiple-choice", "created": "2015-12-31T01:33:17Z", "prompt": {"relatedLectureIds": ["2169338"], "answers": ["foreach city in cities", "foreach var city in cities", "foreach (var city in cities)", "foreach (city in cities)"], "question": "<p>var cities = new string[] { \"Melbourne\", \"Sydney\", \"Brisbane\" };</p><p>What is the correct syntax to iterate over <strong>cities </strong>using <span>a <strong>foreach </strong><span>block?</span></span></p>", "feedbacks": ["", "", "", ""]}, "correct_response": ["c"], "updated": "2015-12-31T01:33:17Z", "section": "", "question_plain": "var cities = new string[] { \"Melbourne\", \"Sydney\", \"Brisbane\" };What is the correct syntax to iterate over cities using a foreach block?", "related_lectures": [{"_class": "lecture", "id": 2169338, "title": "Iteration Statements", "created": "2015-01-03T06:33:23Z", "asset": {"_class": "asset", "id": 4227048, "asset_type": "Video", "title": "IterationStatements.mp4", "created": "2015-09-26T07:04:08Z"}, "object_index": 43, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169338"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789734, "assessment_type": "multiple-choice", "created": "2015-12-31T01:36:03Z", "prompt": {"relatedLectureIds": ["2169338"], "answers": ["<p>5</p>", "<p>3</p>", "<p>1</p>", "<p>4</p>"], "question": "<p>How many times will this <strong>while </strong>loop execute?</p>\n\n<p>var numbers = 0;</p>\n\n<p>while (numbers &lt; 5)<br>{<br>      numbers += 2;<br>}</p>", "feedbacks": ["", "The first time number is 0, so it's less than 5. Then, it'll be incremented by 2, so it's still less than 5. Next, it'll be 4, so the loop be executed one more time. Finally, it becomes 6 and because it's greater than 5, the loop will not be executed.", "", ""]}, "correct_response": ["b"], "updated": "2017-05-01T20:19:17Z", "section": "", "question_plain": "How many times will this while loop execute?\n\nvar numbers = 0;\n\nwhile (numbers &lt; 5){      numbers += 2;}", "related_lectures": [{"_class": "lecture", "id": 2169338, "title": "Iteration Statements", "created": "2015-01-03T06:33:23Z", "asset": {"_class": "asset", "id": 4227048, "asset_type": "Video", "title": "IterationStatements.mp4", "created": "2015-09-26T07:04:08Z"}, "object_index": 43, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2169338"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
