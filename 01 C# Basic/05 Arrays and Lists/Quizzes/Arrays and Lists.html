@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>005 Arrays and Lists</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 789742, "assessment_type": "multiple-choice", "created": "2015-12-31T01:40:14Z", "prompt": {"question": "<p>What is the correct syntax to declare a <strong>rectangular 3x5 array</strong>?</p>", "relatedLectureIds": ["2159176"], "feedbacks": ["", "", ""], "answers": ["var array = new int[3,5];", "var array = new int[3][5];", "var array = new int[](3, 5);"]}, "correct_response": ["a"], "updated": "2015-12-31T01:47:51Z", "section": "", "question_plain": "What is the correct syntax to declare a rectangular 3x5 array?", "related_lectures": [{"_class": "lecture", "id": 2159176, "title": "Arrays", "created": "2015-01-01T08:27:11Z", "asset": {"_class": "asset", "id": 4227950, "asset_type": "Video", "title": "Arrays3.mp4", "created": "2015-09-26T12:53:59Z"}, "object_index": 51, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2159176"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789746, "assessment_type": "multiple-choice", "created": "2015-12-31T01:47:45Z", "prompt": {"question": "<p>What is the difference between arrays and lists?</p>", "relatedLectureIds": ["2979536"], "feedbacks": ["", "", "", ""], "answers": ["Arrays are limited to primitive types, but we can store any types in lists.", "Arrays are faster than lists.", "There is no difference. Both can be used to store a sequence of objects.", "Arrays are fixed in size, lists are dynamic. More items can be added later."]}, "correct_response": ["d"], "updated": "2015-12-31T01:47:51Z", "section": "", "question_plain": "What is the difference between arrays and lists?", "related_lectures": [{"_class": "lecture", "id": 2979536, "title": "Lists", "created": "2015-05-25T07:28:54Z", "asset": {"_class": "asset", "id": 4227960, "asset_type": "Video", "title": "Lists.mp4", "created": "2015-09-26T12:56:54Z"}, "object_index": 53, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2979536"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789744, "assessment_type": "multiple-choice", "created": "2015-12-31T01:43:12Z", "prompt": {"question": "<p>What will be the output of this code?</p><p>var numbers = new List&lt;int&gt;() { 1, 2, 3, 4, 5 };<br>var index = numbers.IndexOf(1);</p><p>Console.WriteLine(index);</p>", "relatedLectureIds": ["2979538"], "feedbacks": ["", "The index of first element in a list is 0.", ""], "answers": ["1", "0", "5"]}, "correct_response": ["b"], "updated": "2015-12-31T01:47:51Z", "section": "", "question_plain": "What will be the output of this code?var numbers = new List&lt;int&gt;() { 1, 2, 3, 4, 5 };var index = numbers.IndexOf(1);Console.WriteLine(index);", "related_lectures": [{"_class": "lecture", "id": 2979538, "title": "Demo: Lists", "created": "2015-05-25T07:29:06Z", "asset": {"_class": "asset", "id": 4228648, "asset_type": "Video", "title": "DemoLists.mp4", "created": "2015-09-26T15:25:58Z"}, "object_index": 54, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2979538"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789750, "assessment_type": "multiple-choice", "created": "2015-12-31T01:50:05Z", "prompt": {"answers": ["list.Last", "list.LastIndexOf()", "list[list.Count - 1]", "list[list.Count]"], "relatedLectureIds": ["2979536"], "feedbacks": ["", "", "Since lists and arrays are zero-indexed, the index of the last element equals the number of items in the list (list.Count) minus 1.", ""], "question": "<p>How can access the last element in a list?</p>"}, "correct_response": ["c"], "updated": "2015-12-31T01:50:05Z", "section": "", "question_plain": "How can access the last element in a list?", "related_lectures": [{"_class": "lecture", "id": 2979536, "title": "Lists", "created": "2015-05-25T07:28:54Z", "asset": {"_class": "asset", "id": 4227960, "asset_type": "Video", "title": "Lists.mp4", "created": "2015-09-26T12:56:54Z"}, "object_index": 53, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2979536"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

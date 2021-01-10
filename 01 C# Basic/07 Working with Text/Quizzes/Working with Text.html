@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>007 Working with Text</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 789752, "assessment_type": "multiple-choice", "created": "2015-12-31T01:53:11Z", "prompt": {"answers": ["Nosh", "Mosh", "This code will not get compiled. "], "relatedLectureIds": ["2980860"], "feedbacks": ["", "", "Strings are immutable. Once you set them, you cannot change them."], "question": "<p>What will be the output of this code?</p><p>var name = \"Mosh\";</p><p>name[0] = \"N\";</p><p>Console.WriteLine(name);</p>"}, "correct_response": ["c"], "updated": "2016-01-13T04:56:26Z", "section": "", "question_plain": "What will be the output of this code?var name = \"Mosh\";name[0] = \"N\";Console.WriteLine(name);", "related_lectures": [{"_class": "lecture", "id": 2980860, "title": "String", "created": "2015-05-25T14:20:38Z", "asset": {"_class": "asset", "id": 4230594, "asset_type": "Video", "title": "String.mp4", "created": "2015-09-27T01:00:33Z"}, "object_index": 62, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980860"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789754, "assessment_type": "multiple-choice", "created": "2015-12-31T01:55:14Z", "prompt": {"answers": ["MOSH", "Mosh", "This code will not get compiled."], "relatedLectureIds": ["2984160"], "feedbacks": ["", "Since strings are immutable, ToUpper() will return a new string with all uppercase letters. But we've not stored the result here, and since the name variable will be unchanged, the output will be Mosh.", ""], "question": "<p>What will be the output of this code?</p><p>var name = \"Mosh\";</p><p>name.ToUpper();</p><p>Console.WriteLine(name);</p>"}, "correct_response": ["b"], "updated": "2015-12-31T01:55:14Z", "section": "", "question_plain": "What will be the output of this code?var name = \"Mosh\";name.ToUpper();Console.WriteLine(name);", "related_lectures": [{"_class": "lecture", "id": 2984160, "title": "Demo: String", "created": "2015-05-26T02:52:42Z", "asset": {"_class": "asset", "id": 4231206, "asset_type": "Video", "title": "DemoString2.mp4", "created": "2015-09-27T04:37:25Z"}, "object_index": 63, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2984160"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789756, "assessment_type": "multiple-choice", "created": "2015-12-31T01:58:14Z", "prompt": {"answers": ["true", "false"], "relatedLectureIds": ["2984160"], "feedbacks": ["", "Name has one whitespace character, so it's neither null nor empty. "], "question": "<p>What will be the value of <strong>result</strong>?</p><p>var name = \" \";</p><p>var result = String.IsNullOrEmpty(name);</p>"}, "correct_response": ["b"], "updated": "2015-12-31T01:58:14Z", "section": "", "question_plain": "What will be the value of result?var name = \" \";var result = String.IsNullOrEmpty(name);", "related_lectures": [{"_class": "lecture", "id": 2984160, "title": "Demo: String", "created": "2015-05-26T02:52:42Z", "asset": {"_class": "asset", "id": 4231206, "asset_type": "Video", "title": "DemoString2.mp4", "created": "2015-09-27T04:37:25Z"}, "object_index": 63, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2984160"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789758, "assessment_type": "multiple-choice", "created": "2015-12-31T02:01:54Z", "prompt": {"answers": ["This code will not get compiled", "1", "0"], "relatedLectureIds": ["2980852"], "feedbacks": ["StringBuilder only provides methods for fast and efficient manipulation of strings. It doesn't have any methods to search in strings. If you need to search in a string that you're building using a StringBuilder, you need to cover it to a string first: builder.ToString().IndexOf('M').", "", ""], "question": "<p>What will be the output of this code?</p><p>var builder = new StringBuilder(\"Mosh\");</p><p>var index = builder.IndexOf('M')</p><p>Console.WriteLine(index);</p>"}, "correct_response": ["a"], "updated": "2015-12-31T02:01:54Z", "section": "", "question_plain": "What will be the output of this code?var builder = new StringBuilder(\"Mosh\");var index = builder.IndexOf('M')Console.WriteLine(index);", "related_lectures": [{"_class": "lecture", "id": 2980852, "title": "Demo: StringBuilder", "created": "2015-05-25T14:19:14Z", "asset": {"_class": "asset", "id": 4231238, "asset_type": "Video", "title": "DemoStringBuilder.mp4", "created": "2015-09-27T04:47:50Z"}, "object_index": 66, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980852"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

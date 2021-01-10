@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>006 Dates and Times Quiz</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 659674, "assessment_type": "multiple-choice", "created": "2015-09-10T06:29:04Z", "prompt": {"answers": ["new DateTime()", "DateTime.Now", "DateTime.Current"], "feedbacks": ["You cannot create a DateTime object without specifying a value.", "DateTime has a static property called Now, which returns the current date/time.", "DateTime does not have a static property called Current."], "question": "<p>How can we get the current date/time?</p>", "relatedLectureIds": []}, "correct_response": ["b"], "updated": "2015-09-10T06:31:11Z", "section": "", "question_plain": "How can we get the current date/time?", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 659680, "assessment_type": "multiple-choice", "created": "2015-09-10T06:31:05Z", "prompt": {"answers": ["2016", "2015"], "feedbacks": ["DateTime objects are immutable, which means once they're set, they cannot be changed. Here, AddYears() method returns a new DateTime object but we're not storing it in any variables. ", "DateTime objects are immutable. So here AddYears() does not affect our original object."], "question": "<p>What will be the output of this program?</p><p>var dateTime = new DateTime(2015, 1, 1);</p><p>dateTime.AddYears(1);</p><p>Console.WriteLine(dateTime.Year);</p>", "relatedLectureIds": []}, "correct_response": ["b"], "updated": "2015-09-10T06:31:05Z", "section": "", "question_plain": "What will be the output of this program?var dateTime = new DateTime(2015, 1, 1);dateTime.AddYears(1);Console.WriteLine(dateTime.Year);", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 659684, "assessment_type": "multiple-choice", "created": "2015-09-10T06:33:33Z", "prompt": {"answers": ["DateTime.Now.AddHours(1) - DateTime.Now", "new TimeSpan(1, 0, 0)", "TimeSpan.FromHours(1)"], "feedbacks": ["This is a very poor way of doing this.", "You can use the constructor of TimeSpan to pass the value for Hours, and this is fine. But look at the third answer as the best answer.", "This is the simplest and cleanest code. It reveals the intent much better than the second example."], "question": "<p>Select the best way to create a TimeSpan object to represent 1 hour.</p>", "relatedLectureIds": []}, "correct_response": ["c"], "updated": "2015-09-10T06:33:33Z", "section": "", "question_plain": "Select the best way to create a TimeSpan object to represent 1 hour.", "related_lectures": [], "original_assessment_id": 0}, {"_class": "assessment", "id": 659686, "assessment_type": "multiple-choice", "created": "2015-09-10T06:35:12Z", "prompt": {"answers": ["DateTime.Year", "DateTime.Now.Year"], "feedbacks": ["DateTime does not have a static property called Year.", "DateTime.Now returns a DateTime object that represents the current date/time. This object has a Year property that we can access to get the current year."], "question": "<p>How can we get the current year?</p>", "relatedLectureIds": []}, "correct_response": ["b"], "updated": "2015-09-10T06:35:12Z", "section": "", "question_plain": "How can we get the current year?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
