@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>009 Debugging Applications</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 4, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 789764, "assessment_type": "multiple-choice", "created": "2015-12-31T02:13:05Z", "prompt": {"feedbacks": ["", "", ""], "question": "<p>What is the shortcut to run an application in the debug mode?</p>", "answers": ["Using Ctrl+F5", "Using F5", "Using F11"], "relatedLectureIds": ["2980832"]}, "correct_response": ["b"], "updated": "2015-12-31T02:18:20Z", "section": "", "question_plain": "What is the shortcut to run an application in the debug mode?", "related_lectures": [{"_class": "lecture", "id": 2980832, "title": "Debugging Tools in Visual Studio", "created": "2015-05-25T14:10:00Z", "asset": {"_class": "asset", "id": 4146924, "asset_type": "Video", "title": "IntrotoDebugging.mp4", "created": "2015-09-15T00:45:55Z"}, "object_index": 78, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980832"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789766, "assessment_type": "multiple-choice", "created": "2015-12-31T02:14:39Z", "prompt": {"feedbacks": ["You must remember all the debugging shortcuts. ", "", ""], "question": "<p>What is the shortcut to step over a method when debugging?</p>", "answers": ["F10", "F11", "Shift+F5"], "relatedLectureIds": ["2980832"]}, "correct_response": ["a"], "updated": "2015-12-31T02:14:39Z", "section": "", "question_plain": "What is the shortcut to step over a method when debugging?", "related_lectures": [{"_class": "lecture", "id": 2980832, "title": "Debugging Tools in Visual Studio", "created": "2015-05-25T14:10:00Z", "asset": {"_class": "asset", "id": 4146924, "asset_type": "Video", "title": "IntrotoDebugging.mp4", "created": "2015-09-15T00:45:55Z"}, "object_index": 78, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980832"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789768, "assessment_type": "multiple-choice", "created": "2015-12-31T02:16:48Z", "prompt": {"feedbacks": ["", "", "You must remember all debugging shortcuts. ", ""], "answers": ["F10", "F11", "Shift+F11", "Shift+F5"], "question": "<p>What's the shortcut to step outside a method when debugging? </p>", "relatedLectureIds": ["2980832"]}, "correct_response": ["c"], "updated": "2015-12-31T02:16:48Z", "section": "", "question_plain": "What's the shortcut to step outside a method when debugging?", "related_lectures": [{"_class": "lecture", "id": 2980832, "title": "Debugging Tools in Visual Studio", "created": "2015-05-25T14:10:00Z", "asset": {"_class": "asset", "id": 4146924, "asset_type": "Video", "title": "IntrotoDebugging.mp4", "created": "2015-09-15T00:45:55Z"}, "object_index": 78, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980832"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789770, "assessment_type": "multiple-choice", "created": "2015-12-31T02:17:34Z", "prompt": {"feedbacks": ["", "You must remember all debugging shortcuts.", ""], "question": "<p>What is the shortcut to stop debugging?</p>", "answers": ["F5", "Shift+F5", "Ctrl+F5"], "relatedLectureIds": ["2980832"]}, "correct_response": ["b"], "updated": "2015-12-31T02:17:34Z", "section": "", "question_plain": "What is the shortcut to stop debugging?", "related_lectures": [{"_class": "lecture", "id": 2980832, "title": "Debugging Tools in Visual Studio", "created": "2015-05-25T14:10:00Z", "asset": {"_class": "asset", "id": 4146924, "asset_type": "Video", "title": "IntrotoDebugging.mp4", "created": "2015-09-15T00:45:55Z"}, "object_index": 78, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2980832"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

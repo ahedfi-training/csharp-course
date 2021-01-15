@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>008 Working with Files</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 2, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 789760, "assessment_type": "multiple-choice", "created": "2015-12-31T02:05:01Z", "prompt": {"answers": ["FileInfo.Delete(path);", "File.Delete(path)", "new FileInfo().Delete(path)"], "relatedLectureIds": ["2158920"], "question": "<p>How can we delete a file in C#?</p>", "feedbacks": ["FileInfo doesn't have static members to work with files. It represents a single file. ", "All methods of the File class are static. ", "When instantiating FileInfo, you need to supply the path. So, here \"path\" should be an argument to the constructor of FileInfo, not the Delete method."]}, "correct_response": ["b"], "updated": "2015-12-31T02:05:01Z", "section": "", "question_plain": "How can we delete a file in C#?", "related_lectures": [{"_class": "lecture", "id": 2158920, "title": "Demo: File and FileInfo", "created": "2015-01-01T07:02:38Z", "asset": {"_class": "asset", "id": 4231124, "asset_type": "Video", "title": "FileandFileInfo.mp4", "created": "2015-09-27T04:10:52Z"}, "object_index": 72, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2158920"}], "original_assessment_id": 0}, {"_class": "assessment", "id": 789762, "assessment_type": "multiple-choice", "created": "2015-12-31T02:10:43Z", "prompt": {"answers": ["File is easier to work with because we don't need to create an object", "FileInfo is more efficient when we need to execute multiple operations on a given file.", "Every time we use one of the operations of FileInfo, some security checking is done by operating system."], "relatedLectureIds": ["2158920"], "question": "<p>What statement is <strong>wrong </strong>about <strong>File </strong><span>and <strong>FileInfo </strong><span>classes?</span></span></p>", "feedbacks": ["", "", "Security checking is done only during instantiation of FileInfo, and that's why it's more efficient than File if you're executing multiple operations on a given file. Because security checking will be done only once. "]}, "correct_response": ["c"], "updated": "2015-12-31T02:10:43Z", "section": "", "question_plain": "What statement is wrong about File and FileInfo classes?", "related_lectures": [{"_class": "lecture", "id": 2158920, "title": "Demo: File and FileInfo", "created": "2015-01-01T07:02:38Z", "asset": {"_class": "asset", "id": 4231124, "asset_type": "Video", "title": "FileandFileInfo.mp4", "created": "2015-09-27T04:10:52Z"}, "object_index": 72, "url": "/csharp-tutorial-for-beginners/learn/v4/t/lecture/2158920"}], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
