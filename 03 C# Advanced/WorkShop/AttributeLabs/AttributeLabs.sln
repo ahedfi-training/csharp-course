@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttributeLabs", "AttributeLabs\AttributeLabs.csproj", "{E5D1CBA9-2330-4E36-A991-E055C0BC28FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5D1CBA9-2330-4E36-A991-E055C0BC28FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D1CBA9-2330-4E36-A991-E055C0BC28FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D1CBA9-2330-4E36-A991-E055C0BC28FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D1CBA9-2330-4E36-A991-E055C0BC28FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {898D54B2-1D29-4750-9291-7EF7EA262FAF}
+	EndGlobalSection
+EndGlobal
