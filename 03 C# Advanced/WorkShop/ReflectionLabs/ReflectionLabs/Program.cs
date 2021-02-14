@@ -30,7 +30,7 @@ namespace ReflectionLabs
         static void DumpObject(Type type, object obj)
         {
             FieldInfo[] fields = type.GetFields(BindingFlags.Instance | BindingFlags.Public);
-            var methodsInfo = type.GetMethods(BindingFlags.Instance);
+            var methodsInfo = type.GetMethods(BindingFlags.Instance | BindingFlags.Public);
             foreach (FieldInfo field in fields)
             {
                 if (field.FieldType == typeof(int))
