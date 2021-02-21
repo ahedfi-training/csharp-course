@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\.Net Training\04 Entity Framework\WorkSho\DbFirst\DbFirst\LiveDemo.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\.Net Training\04 Entity Framework\WorkShop\02 DbFirst\DbFirst\LiveDemo.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
