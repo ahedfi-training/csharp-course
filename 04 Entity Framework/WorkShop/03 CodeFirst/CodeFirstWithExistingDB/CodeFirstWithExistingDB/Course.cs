@@ -6,7 +6,7 @@ namespace CodeFirstWithExistingDB
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Courses")]
+    [Table("tbl_Courses")]
     public partial class Course
 
     {
@@ -17,8 +17,8 @@ namespace CodeFirstWithExistingDB
             Tags = new HashSet<Tag>();
         }
 
-        [Key]
-        public int CourseID { get; set; }
+
+        public int Id { get; set; }
 
         public int AuthorID { get; set; }
 
@@ -27,7 +27,6 @@ namespace CodeFirstWithExistingDB
         public string Title { get; set; }
 
         [Required]
-        [StringLength(8000)]
         public string Description { get; set; }
 
         public short FullPrice { get; set; }

@@ -13,7 +13,7 @@ namespace CodeFirstWithExistingDB
         }
 
         public virtual DbSet<Author> Authors { get; set; }
-        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<Course> CoursesTable { get; set; }
         public virtual DbSet<CourseSection> CourseSections { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
@@ -22,6 +22,10 @@ namespace CodeFirstWithExistingDB
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Course>()
+                .Property(t => t.Description)
+                .IsRequired();
+
             modelBuilder.Entity<Author>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
